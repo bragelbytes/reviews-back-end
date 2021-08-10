@@ -4,7 +4,8 @@ const mongoose = require("mongoose")
 const cors = require ("cors")
 const app = express()
 const db = mongoose.connection
-const reviewsController = require("./controllers/reviews.js")
+const reviewsController = require("./controllers/reviews.js");
+const userController = require('./controllers/users.js');
 require("dotenv").config()
 
 //config
@@ -20,6 +21,7 @@ db.on("disconnected", () => console.log("mongo disconnected "));
 app.use(express.json())
 app.use(cors())
 app.use("/reviews", reviewsController)
+app.use('/users', userController)
 
 //Heroku
 app.get("/", (req, res) => {
