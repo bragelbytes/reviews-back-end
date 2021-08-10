@@ -9,7 +9,7 @@ users.get("/", (req, res) => {
   })
 })
 users.post('/', (req,res) => {
-   req.body.password = bcrypt.hasSync(req.body.password, bcryptgenSaltSync(10))
+   req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
    User.create(req.body, (err, createdUser) => {
       console.log('User is Created: ', createdUser);
    })
