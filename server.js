@@ -20,11 +20,13 @@ db.on("connected", () => console.log("mongo connected: ", MONGODB_URI));
 db.on("disconnected", () => console.log("mongo disconnected "));
 
 //Middleware
-app.use(session({
+app.use(
+   session({
    secret: process.env.SECRET,
    resave: false,
    saveUninitialized: false
-}))
+   })
+);
 app.use(express.json())
 app.use(cors())
 app.use("/reviews", reviewsController)
