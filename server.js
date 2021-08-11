@@ -7,7 +7,7 @@ const app = express()
 const db = mongoose.connection
 const reviewsController = require("./controllers/reviews.js");
 const userController = require('./controllers/users.js');
-const sessionsController = require('./controllers/sessions.js')
+//const sessionsController = require('./controllers/sessions.js')
 require("dotenv").config()
 
 //config
@@ -31,7 +31,7 @@ app.use(express.json())
 app.use(cors())
 app.use("/reviews", reviewsController)
 app.use('/users', userController)
-app.use('/sessions', sessionsController)
+//app.use('/sessions', sessionsController)
 
 //Heroku
 app.get("/", (req, res) => {
