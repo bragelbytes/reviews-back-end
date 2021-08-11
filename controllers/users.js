@@ -14,4 +14,9 @@ users.post('/', (req,res) => {
       console.log('User is Created: ', createdUser);
    })
 })
+users.delete("/:id", (req, res) => {
+     User.findByIdAndRemove(req.params.id, (error, deleteUsers) => {
+       res.json(deleteUsers)
+     })
+   })
 module.exports = users
